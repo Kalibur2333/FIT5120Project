@@ -4,13 +4,13 @@
 Wardrobe for Earth is a website designed to educate adults about the impact of their fashion consumption choices on the planet and how to improve them. This initiative is driven by research highlighting Australia’s worsening clothing waste problem due to mass consumption and unsustainable production. Our target audience is adults aged 18-34 who live in inner-city Melbourne, are financially independent, and are concerned about climate change. Wardrobe for Earth’s mission is to educate users about Australia’s clothing waste problem, encouraging them to change their fashion consumption behaviors for the benefit of our planet. Our ultimate aim is to improve Australia’s waste problem and reduce our impact on climate change.
 
 ## Product Link
-[Wardrobe for Earth](https://www.wardrobe-for-earth.com) (password: sbmonash)
+[Wardrobe for Earth](https://www.wardrobeforearth.com) (password: sbmonash)
 
 ## Product Video
 [Wardrobe for Earth Product Video](https://www.youtube.com/watch?v=xxxx)
 
 ## Project Portfolio
-[Wardrobe for Earth Mahara](https://mahara.wardrobe-for-earth.com)
+[Wardrobe for Earth Mahara](https://mahara.wardrobeforearth.com)
 
 ## Product Features
 Wardrobe for Earth allows users to:
