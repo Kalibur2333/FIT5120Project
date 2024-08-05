@@ -1,0 +1,83 @@
+﻿@model FIT5120Project.Models.Fabric
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Fabric</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FabricName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FabricName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GreenHouse)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GreenHouse)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pollutants)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pollutants)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WaterConsum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WaterConsum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EnergyConsum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EnergyConsum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WasteConsum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WasteConsum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SalesReve)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SalesReve)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Score)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Score)
+        </dd>
+
+    </dl>
+</div>
+<p class="text-3xl">
+    Developing Pls Go
+    @Html.ActionLink("Back to List", "Index")
+</p>

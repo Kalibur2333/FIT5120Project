@@ -1,0 +1,239 @@
+﻿@model FIT5120Project.Models.ShoppingImpactViewModel
+@{
+    ViewBag.Title = "Results";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="bg-result">
+    <p class="py-10 px-10 text-2xl text-center">Your clothing shopping habits generate <span class="font-bold" id="Co2Total"> </span> kg of carbon emissions annually.</p>
+</section>
+
+<section class="flex justify-between mx-20 max-w-screen-xl mx-auto">
+    <div class="justify-center">
+        <div class="mt-10 max-w-md bg-gray-100 rounded-full flex justify-center mx-auto">
+            <p class="text-2xl py-5 text-center">
+                That’s equivalent to the CO2 produced when driving 
+                <span class="font-bold" id="drivingQuantity">
+                    <!-- The value will be set by the script below -->
+                </span> time(s) from Melbourne to Sydney.
+            </p>
+        </div>
+        <div class="mt-5">
+            <img class="w-full h-auto max-w-3xl" src="~/Content/images/landCar.png" alt="">
+        </div>
+    </div>
+    <div>
+        <div>
+            <img class="w-full h-auto max-w-md" src="~/Content/images/moonCar.png" alt="">
+        </div>
+        <div class="max-w-lg">
+            <p class="text-2xl py-5 text-center justify-center">
+                If this rate of fashion consumption continues, in 50 years, you could have generated enough CO2 to drive
+                <span class="font-bold" id="timesToMoon">
+                    <!-- The value will be set by the script below -->
+                </span>
+            </p>
+        </div>
+    </div>
+</section>
+
+
+<section class="bg-center bg-no-repeat" style="background-image: url('../Content/images/resChart.png'); background-size: 100% auto;">
+    <p class="text-2xl py-5 text-center justify-center">
+        Your shopping quantity is <span class="font-bold" id="quantityStatus"></span>
+    </p>
+    <div class="flex justify-center pb-5">
+        <canvas class="max-w-4xl max-h-[20vh]" id="myChart"></canvas>
+    </div>
+</section>
+
+
+<section>
+    <div class="flex justify-center mx-auto max-w-4xl">
+        <h2 class="mt-5 text-3xl text-center">
+            Changing your shopping habits can help reduce your impact on water usage, carbon emissions, pollution and waste
+        </h2>
+    </div>
+    <div class="flex justify-center mx-auto">
+        <img class="w-full h-auto max-w-4xl" src="~/Content/images/foot.png" alt="">
+    </div>
+</section>
+
+<section class=" bg-gray-200">
+    <div class="flex max-w-screen-xl mx-auto px-4 py-12">
+        <div class="me-5 max-w-md text-center">
+            <br />
+            <br />
+            <h1 class="mt-10 text-3xl font-bold mb-4">Want to make a better impact?</h1>
+            <p class="text-lg">Implementing sustainable fashion choices into your everyday behavior is easy! Follow our tips to reduce the impact of your fashion footprint</p>
+        </div>
+        <div class="mx-auto max-w-xl text-center me-2">
+            <div class="flex my-5">
+                <img class="w-full h-auto max-w-[60px]" src="~/Content/images/shirt.svg" alt="">
+                <p class="text-lg">
+                    Choose clothing made from <a href="@Url.Action("Index", "Fabrics")" class="text-btn text-decoration-underline">sustainable fabrics</a> such as <a href="@Url.Action("Details", "Fabrics", new { id = 1 })" class="text-btn text-decoration-underline">organic cotton</a>  and <a href="@Url.Action("Details", "Fabrics", new { id = 2 })" class="text-btn text-decoration-underline">synthetic blend</a>
+</p>
+            </div>
+            <div class="flex my-5">
+                <img class="w-full h-auto max-w-[60px]" src="~/Content/images/second-hand.svg" alt="">
+                <p class="text-lg">
+                    Give away your old clothes by donating to <a href="@Url.Action("Index", "Locations")" class="text-btn text-decoration-underline">recycling locations</a> who can give it another life
+</p>
+            </div>
+            <div class="flex my-5">
+                <img class="w-full h-auto max-w-[60px]" src="~/Content/images/ecology.svg" alt="">
+                <p class="text-lg">
+                    Synthetic fabrics can take up to 200 years to decompose, choose biodegradable fabrics such as <a href="@Url.Action("Details", "Fabrics", new { id = 3 })" class="text-btn text-decoration-underline">wool</a> and <a href="@Url.Action("Details", "Fabrics", new { id = 4 })" class="text-btn text-decoration-underline">linen</a> instead
+</p>
+            </div>
+        </div>
+        <div class="mx-auto max-w-xl text-center">
+            <div class="flex my-5">
+                <img class="w-full h-auto max-w-[60px]" src="~/Content/images/eco-tag.svg" alt="">
+                <p class="text-lg">
+                    Choose <a href="@Url.Action("Details", "Brands")" class="text-btn text-decoration-underline">sustainable brands</a> when buying clothes such as <a href="@Url.Action("Details", "Brands", new { id = 126 })" class="text-btn text-decoration-underline">Kmart</a> and <a href="@Url.Action("Details", "Brands", new { id = 100 })" class="text-btn text-decoration-underline">H&M</a>
+</p>
+            </div>
+            <div class="flex my-5">
+                <img class="w-full h-auto max-w-[60px]" src="~/Content/images/brain.svg" alt="">
+                <p class="text-lg">
+                    Before buying something new, look through your wardrobe and consider whether it is really necessary
+                </p>
+            </div>
+            <div class="flex my-5">
+                <img class="w-full h-auto max-w-[60px]" src="~/Content/images/clothes.svg" alt="">
+                <p class="text-lg">
+                    Take care of your clothes by following care instructions and repairing when needed
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="flex justify-center items-center mb-10">
+    <img class="md:h-auto max-w-2xs" src="~/Content/images/Line.png" alt="">
+</div>
+<p class="flex justify-center text-xl font-bold">What to do next?</p>
+
+<div class="row flex flex-wrap justify-center mt-3 my-5">
+
+    <div class="justify-center items-center mx-auto my-2 w-80 bg-white border border-gray-200 rounded-lg shadow">
+        <img class="rounded-lg mx-auto mt-5" src="~/Content/images/fabric.png" alt="" />
+        <div class="py-5 px-3 text-center">
+            <h5 class="mb-5 text-xl font-bold tracking-tight text-btn">Explore the most sustainable fabrics</h5>
+            <div class="flex-column">
+                <a href="@Url.Action("Index", "Fabrics")" type="button" class="text-white bg-btn hover:bg-btnOn focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2">Sustainable Fabrics</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="mx-auto my-2 w-80 bg-white border border-gray-200 rounded-lg shadow">
+        <img class="rounded-lg mx-auto mt-5" src="~/Content/images/brand.png" alt="" />
+        <div class="py-5 px-3 text-center">
+            <h5 class="mb-5 text-xl font-bold tracking-tight text-btn">Explore the most sustainable brands</h5>
+            <div class="flex-column">
+                <a href="@Url.Action("Index", "Brands")" type="button" class="text-white bg-btn hover:bg-btnOn focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2">Sustainable Brands</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="mx-auto my-2 w-80 bg-white border border-gray-200 rounded-lg shadow">
+        <img class="rounded-lg mx-auto mt-5" src="~/Content/images/recycle.png" alt="" />
+        <div class="py-5 px-3 text-center">
+            <h5 class="mb-5 text-xl font-bold tracking-tight text-btn">Find local recycling shops & give old clothes a new life</h5>
+            <div class="flex-column">
+                <a href="@Url.Action("Index", "Locations")" type="button" class="text-white bg-btn hover:bg-btnOn focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2">Recycling locations</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Assuming @Model.DrivingQuantity is passed to the JavaScript
+    var drivingQuantity = @Model.DrivingQuantity; // Replace with actual data fetching logic
+    document.getElementById('drivingQuantity').textContent = drivingQuantity < 0 ? 0 : drivingQuantity;
+    var Co2Total = @Model.Co2Total; // Replace with actual data fetching logic
+    document.getElementById('Co2Total').textContent = Co2Total < 0 ? 0 : Co2Total;
+    var timesToMoon = @Model.TimesToMoon; // Replace with actual data fetching logic
+    var displayText;
+    if (timesToMoon < 0.25) {
+        displayText = "a quarter way to the moon";
+    } else if (timesToMoon < 0.5) {
+        displayText = "half of the way to the moon";
+    } else if (timesToMoon < 0.75) {
+        displayText = "three quarters of the way to the moon";
+    } else if (timesToMoon < 2) {
+        displayText = "1 time to the moon";
+    } else {
+        displayText = timesToMoon.toFixed(0) + ' times to the moon'; // Adjust as needed to manage decimal places
+    }
+    document.getElementById('timesToMoon').textContent = displayText;
+
+    var shopQuantityMonth = @Model.ShopQuantityMonth; // Replace this with your actual data fetching logic
+    var annualShopQuantity = shopQuantityMonth * 12;
+    var averageQuantity = 56;
+
+    var statusText = document.getElementById('quantityStatus');
+    if (annualShopQuantity > averageQuantity) {
+        statusText.textContent = 'Above Average';
+        statusText.style.color = 'red';
+    } else {
+        statusText.textContent = 'Under Average';
+        statusText.style.color = 'green';
+    }
+
+    var firstBarColor = annualShopQuantity > averageQuantity ? 'rgba(177, 101, 84, 1)' : 'rgba(109, 253, 140, 1)';
+
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Your Shopping Quantity', 'Average Quantity'],
+            datasets: [{
+                label: 'Quantity',
+                data: [annualShopQuantity, averageQuantity],
+                backgroundColor: [
+                    firstBarColor,
+                    'rgba(81, 191, 166, 1)'
+                ],
+                borderColor: [
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 99, 132, 1)'
+                ],
+                borderWidth: 0
+            }]
+        },
+        options: {
+            indexAxis: 'y',  // This changes the chart to horizontal bar
+            scales: {
+                x: {
+                    beginAtZero: true,
+                    grid: {
+                        display: false  // Disable horizontal grid lines
+                    }
+                },
+                y: {
+                    ticks: {
+                        color: 'black', // Change text color to black
+                        font: {
+                            weight: 'bold' // Make font bold
+                        }
+                    },
+                    grid: {
+                        display: false  // Disable horizontal grid lines
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    labels: {
+                        color: 'black', // Change legend text color to black
+                        font: {
+                            weight: 'bold' // Make legend font bold
+                        }
+                    }
+                }
+            }
+        }
+    });
+</script>

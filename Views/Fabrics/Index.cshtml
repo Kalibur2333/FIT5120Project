@@ -1,0 +1,360 @@
+﻿@model PagedList.IPagedList<FIT5120Project.Models.Fabric>
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+
+<section class="bg-white">
+    <div class="flex justify-between px-4 mx-auto max-w-screen-xl">
+        <div>
+            <h1 class="mb-4 mt-24 text-3xl font-bold tracking-tight leading-none text-black md:text-3xl lg:text-3xl">Looking for sustainable clothing fabrics that last you longer years,</h1>
+            <h1 class="mb-20 text-3xl font-bold tracking-tight leading-none text-black md:text-3xl lg:text-3xl">look as good, and benefit the planet?</h1>            
+            <div class="flex-col justify-center max-w-sm">
+                <div class="flex justify-center">
+                    <a href="#1" class="">
+                        <box-icon size="lg" name='chevrons-down' type='solid' animation='tada' color='#869256'></box-icon>
+                    </a>
+                </div>
+                <div>
+                    <a href="#1" class="">
+                        <p class="mb-8 text-3xl text-decoration-underline font-normal text-btn lg:text-2xl mx-auto sm:px-16 text-center text-lg lg:px-auto">Follow the steps below</p>
+                    </a>
+                </div>
+
+            </div>
+            
+        </div>
+        <img class="max-w-sm h-auto py-5" src="/Content/images/FIcon.png" alt="">
+    </div>
+</section>
+
+<!--Broder-->
+<section class="flex justify-center bg-gray-100">
+    <div class="flex justify-center mx-20">
+        <ol id="1" class="justify-center items-center sm:flex">
+            <li class="relative mb-6 ms-20 sm:mb-0">
+                <div class="flex items-center">
+                    <div class="z-10 flex items-center justify-center w-10 h-10 bg-blue-100 rounded-full ring-1 ring-btnOn bg-result">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" style="fill: rgba(117, 127, 77, 1);"><path d="M19 3H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2V5c0-1.103-.897-2-2-2zm-7 10.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"></path></svg>
+                    </div>
+                    <div class="hidden sm:flex w-full bg-black h-0.5"></div>
+                </div>
+                <div class="my-3 bg-white rounded-lg shadow sm:pe-8 mx-2">
+                    <img class="max-w-2xs h-auto py-5" src="/Content/images/F1.png" alt="">
+                </div>
+            </li>
+            <li class="relative mb-6 sm:mb-0">
+                <div class="flex items-center">
+                    <div class="z-10 flex items-center justify-center w-10 h-10 bg-blue-100 rounded-full ring-1 ring-btnOn bg-result">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" style="fill: rgba(117, 127, 77, 1);"><path d="M19 3H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2V5c0-1.103-.897-2-2-2zM9.5 13.5a1.5 1.5 0 1 1 .001-3.001A1.5 1.5 0 0 1 9.5 13.5zm5 0a1.5 1.5 0 1 1 .001-3.001A1.5 1.5 0 0 1 14.5 13.5z"></path></svg>
+                    </div>
+                    <div class="hidden sm:flex w-full bg-black h-0.5"></div>
+                </div>
+                <div class="my-3 bg-white rounded-lg shadow sm:pe-8 mx-5">
+                    <img class="max-w-2xs h-auto py-5" src="/Content/images/F2.png" alt="">
+                </div>
+            </li>
+            <li class="relative mb-6 sm:mb-0">
+                <div class="flex items-center">
+                    <div class="z-10 flex items-center justify-center w-10 h-10 bg-blue-100 rounded-full ring-1 ring-btnOn bg-result">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" style="fill: rgba(117, 127, 77, 1);"><path d="M19 3H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2V5c0-1.103-.897-2-2-2zM8 9.5a1.5 1.5 0 1 1 .001-3.001A1.5 1.5 0 0 1 8 9.5zm4 4a1.5 1.5 0 1 1 .001-3.001A1.5 1.5 0 0 1 12 13.5zm4 4a1.5 1.5 0 1 1 .001-3.001A1.5 1.5 0 0 1 16 17.5z"></path></svg>
+                    </div>
+                    <div class="hidden sm:flex w-full bg-black h-0.5"></div>
+                </div>
+                <div class="my-3 bg-white rounded-lg shadow sm:pe-8 mx-5">
+                    <img class="max-w-2xs h-auto py-5" src="/Content/images/F3.png" alt="">
+                </div>
+            </li>
+            <li class="relative mb-6 sm:mb-0">
+                <div class="flex items-center">
+                    <div class="z-10 flex items-center justify-center w-10 h-10 bg-blue-100 rounded-full ring-1 ring-btnOn bg-result">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" style="fill: rgba(117, 127, 77, 1);transform: ;msFilter:;"><path d="M19 3H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2V5c0-1.103-.897-2-2-2zm-7.933 13.481-3.774-3.774 1.414-1.414 2.226 2.226 4.299-5.159 1.537 1.28-5.702 6.841z"></path></svg>
+                    </div>
+                    <div class="hidden sm:flex w-[35vh] bg-black h-0.5"></div>
+                </div>
+                <div class="my-3 bg-white rounded-lg shadow sm:pe-8 mx-5">
+                    <img class="max-w-2xs h-auto py-5" src="/Content/images/F4.png" alt="">
+                </div>
+            </li>
+        </ol>
+    </div>
+
+</section>
+
+
+
+
+<div >
+    <div class="flex justify-center items-center my-3">
+
+        <h3 class="flex items-center text-3xl text-gray-900 text-center mx-auto">
+            <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" style="fill: rgba(19, 19, 19, 1);transform: ;msFilter:;"><path d="M12 8c-2.168 0-4 1.832-4 4s1.832 4 4 4 4-1.832 4-4-1.832-4-4-4zm0 6c-1.065 0-2-.935-2-2s.935-2 2-2 2 .935 2 2-.935 2-2 2z"></path><path d="M20 5h-2.586l-2.707-2.707A.996.996 0 0 0 14 2h-4a.996.996 0 0 0-.707.293L6.586 5H4c-1.103 0-2 .897-2 2v11c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2V7c0-1.103-.897-2-2-2zM4 18V7h3c.266 0 .52-.105.707-.293L10.414 4h3.172l2.707 2.707A.996.996 0 0 0 17 7h3l.002 11H4z"></path></svg>
+            Take a picture of the clothing fabric care label inside the clothing item and upload it (Feature developing)
+        </h3>
+    </div>
+    <div class="flex justify-center items-center">
+        <h3 class="flex items-center text-2xl text-center mx-auto text-btn">
+            Check out the example below to help you identify the right label
+        </h3>
+    </div>
+    <!--Enlarge the box of drag and drop/ and enlarge text inside-->
+    <div class="flex items-center justify-center md:max-w-xl mx-auto mt-4">
+        <label for="dropzone-file" class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-900 border-dashed rounded-lg cursor-pointer bg-gray-50">
+            <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                <svg class="w-8 h-8 mb-4 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
+                </svg>
+                <p class="mb-2 text-sm text-gray-500"><span class="font-semibold">Click to upload</span> or drag and drop</p>
+                <p class="text-xs text-gray-500">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
+                <p class="text-sm font-semibold text-gray-500" id="file-name"></p>
+            </div>
+            <input type="file" style="display: none;" id="dropzone-file" accept=".jpg, .jpeg, .png, .pdf" onchange="handleFileInputChange(event)">
+            <button onclick="submitFile()" type="button" class="text-white bg-btn hover:bg-btnOn focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2">Upload</button>
+        </label>
+        <img class="w-25 h-auto mx-10" src="/Content/images/label.jpg" alt="">
+    </div>
+</div>
+<!--Move score/leaves to the middle and add “View” to the right-->
+<div class="container">
+
+    <form method="get" action="@Url.Action("Index", "Fabrics")" class="my-3 mx-auto max-w-screen-xl bg-gray-100 border border-gray-500 rounded-lg flex justify-between">
+        <div class="flex">
+            <svg class="mt-3 ms-2 text-gray-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 18a7.952 7.952 0 0 0 4.897-1.688l4.396 4.396 1.414-1.414-4.396-4.396A7.952 7.952 0 0 0 18 10c0-4.411-3.589-8-8-8s-8 3.589-8 8 3.589 8 8 8zm0-14c3.309 0 6 2.691 6 6s-2.691 6-6 6-6-2.691-6-6 2.691-6 6-6z"></path></svg>
+            <input type="search" name="search" id="default-search" placeholder="Search Fabrics..." class="ms-3 p-3 w-[90vh] text-sm bg-gray-100 text-gray-900 border border-white rounded-lg"/>
+        </div>
+        <button type="submit" class="p-2 border rounded bg-btn text-white m-1">Search</button>
+    </form>
+
+    <div class="flex justify-end">
+
+        <button id="dropdownHoverButton" data-dropdown-toggle="dropdownHover" data-dropdown-trigger="hover" class="text-btn bg-white mx-5 mb-3 hover:bg-gray-100 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center border border-2 border-btn" type="button">
+            Sort By <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4" />
+            </svg>
+        </button>
+    </div>
+
+
+    <!-- Dropdown menu -->
+    <div id="dropdownHover" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
+        <ul class="py-2 text-sm text-gray-700" aria-labelledby="dropdownHoverButton">
+            <li class="text-lg ms-2 mt-2 text-btn text-center">
+                @Html.ActionLink("A-Z", "Index", new { sortOrder = "name_asc", currentFilter = ViewBag.CurrentFilter })
+            </li>
+            <li class="text-lg ms-2 mt-2 text-btn text-center">
+                @Html.ActionLink("Z-A", "Index", new { sortOrder = "name_desc", currentFilter = ViewBag.CurrentFilter })
+            </li>
+            <li class="text-lg ms-2 mt-2 text-btn text-center">
+                @Html.ActionLink("Low-High", "Index", new { sortOrder = "score_asc", currentFilter = ViewBag.CurrentFilter })
+            </li>
+            <li class="text-lg ms-2 mt-2 text-btn text-center">
+                @Html.ActionLink("High-Low", "Index", new { sortOrder = "score_desc", currentFilter = ViewBag.CurrentFilter })
+            </li>
+        </ul>
+
+    </div>
+
+    <div class="flex items-center justify-between bg-btn border border-gray-200 rounded-lg shadow md:max-w-m">
+        <h5 class="text-lg font-bold text-white py-4 px-5">Name<svg class="mx-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(255, 255, 255, 1);"><path d="m11.998 17 7-8h-14z"></path></svg></h5>
+        <div class="flex items-center px-5 py-4">
+            <div class="flex me-[260px]">
+                <p class="text-white text-lg font-bold ">Scores<svg class="mx-3" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(255, 255, 255, 1);"><path d="m11.998 17 7-8h-14z"></path></svg></p>
+                <div class="flex">
+                    <button data-popover-target="popover-default" type="button" class="text-btn bg-white mx-5 mb-3 hover:bg-gray-100 font-medium rounded-full text-sm px-3 py-2.5 text-center inline-flex items-center border border-2 border-btn">?</button>
+                    <div data-popover id="popover-default" role="tooltip" class="absolute mx-auto z-10 invisible inline-block text-sm text-gray-700 transition-opacity duration-300 bg-white border border-gray-900 rounded-lg shadow-sm opacity-0" style="width: 450px;">
+                        <div class="px-3 py-2 bg-gray-100 border-b border-gray-200 rounded-t-lg">
+                            <h3 class="font-semibold text-btn">What does the sustainability rating mean?</h3>
+                        </div>
+                        <div class="px-3 py-2">
+                            <p>Sustainability ratings are derived from an analysis of the environmental impact of each fabric and are shown as a score out of 10. Wardrobe for Earth combines each of these factors using their own methodology to give the fabric’s Overall Score.</p>
+                            <p class="mt-2 text-btn">Click on a fabric to learn about its sustainability .</p>
+                        </div>
+                        <div data-popper-arrow></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="flex items-center">
+                @for (int i = 0; i < 5; i++)
+                {
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(58, 191, 33, 0.8);"><path d="m22 3.41-.12-1.26-1.2.4a13.84 13.84 0 0 1-6.41.64 11.87 11.87 0 0 0-6.68.9A7.23 7.23 0 0 0 3.3 9.5a9 9 0 0 0 .39 4.58 16.6 16.6 0 0 1 1.18-2.2 9.85 9.85 0 0 1 4.07-3.43 11.16 11.16 0 0 1 5.06-1A12.08 12.08 0 0 0 9.34 9.2a9.48 9.48 0 0 0-1.86 1.53 11.38 11.38 0 0 0-1.39 1.91 16.39 16.39 0 0 0-1.57 4.54A26.42 26.42 0 0 0 4 22h2a30.69 30.69 0 0 1 .59-4.32 9.25 9.25 0 0 0 4.52 1.11 11 11 0 0 0 4.28-.87C23 14.67 22 3.86 22 3.41z"></path></svg>
+                }
+            </div>
+        </div>
+    </div>
+    @{
+        var count = 0;
+    }
+    @foreach (var item in Model)
+    {
+        count++;
+        <a href="@Url.Action("Details", "Fabrics", new { id = item.FabricId })" class="flex items-center justify-between bg-gray-50 border border-gray-200 rounded-lg shadow md:max-w-m hover:bg-gray-100">
+
+            <h5 class="text-lg font-bold text-btn py-4 px-5">@Html.DisplayFor(modelItem => item.FabricName)</h5>
+            <div class="flex items-center px-5 py-4">
+                <p class="text-btn me-[400px]">@item.RoundedScore / 10</p>
+                <div class="flex items-center">
+                    @{
+                        var starsFull = (int)Math.Floor(item.Score / 2.0); // Full stars
+                        var starHalf = item.Score % 2 >= 1 ? 1 : 0; // Half star
+                        var starsEmpty = 5 - starsFull - starHalf; // Empty stars
+                    }
+                    @for (int i = 0; i < starsFull; i++)
+                    {
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(58, 191, 33, 0.8);"><path d="m22 3.41-.12-1.26-1.2.4a13.84 13.84 0 0 1-6.41.64 11.87 11.87 0 0 0-6.68.9A7.23 7.23 0 0 0 3.3 9.5a9 9 0 0 0 .39 4.58 16.6 16.6 0 0 1 1.18-2.2 9.85 9.85 0 0 1 4.07-3.43 11.16 11.16 0 0 1 5.06-1A12.08 12.08 0 0 0 9.34 9.2a9.48 9.48 0 0 0-1.86 1.53 11.38 11.38 0 0 0-1.39 1.91 16.39 16.39 0 0 0-1.57 4.54A26.42 26.42 0 0 0 4 22h2a30.69 30.69 0 0 1 .59-4.32 9.25 9.25 0 0 0 4.52 1.11 11 11 0 0 0 4.28-.87C23 14.67 22 3.86 22 3.41z"></path></svg>
+                    }
+                    @if (starHalf == 1)
+                    {
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(58, 191, 33, 0.8);"><path d="m22 3.41-.12-1.26-1.2.4a13.84 13.84 0 0 1-6.41.64 11.87 11.87 0 0 0-6.68.9A7.23 7.23 0 0 0 3.3 9.5a9 9 0 0 0 .39 4.58 16.6 16.6 0 0 1 1.18-2.2 9.85 9.85 0 0 1 4.07-3.43 11.16 11.16 0 0 1 5.06-1A12.08 12.08 0 0 0 9.34 9.2a9.48 9.48 0 0 0-1.86 1.53 11.38 11.38 0 0 0-1.39 1.91 16.39 16.39 0 0 0-1.57 4.54A26.42 26.42 0 0 0 4 22h2a30.69 30.69 0 0 1 .59-4.32 9.25 9.25 0 0 0 4.52 1.11 11 11 0 0 0 4.28-.87C23 14.67 22 3.86 22 3.41z"></path></svg>// Half star
+                    }
+                    @for (int i = 0; i < starsEmpty; i++)
+                    {
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(58, 191, 33, 0.8);"><path d="m21.88 2.15-1.2.4a13.84 13.84 0 0 1-6.41.64 11.87 11.87 0 0 0-6.68.9A7.23 7.23 0 0 0 3.3 9.5a8.65 8.65 0 0 0 1.47 6.6c-.06.21-.12.42-.17.63A22.6 22.6 0 0 0 4 22h2a30.69 30.69 0 0 1 .59-4.32 9.25 9.25 0 0 0 4.52 1.11 11 11 0 0 0 4.28-.87C23 14.67 22 3.86 22 3.41zm-7.27 13.93c-2.61 1.11-5.73.92-7.48-.45a13.79 13.79 0 0 1 1.21-2.84A10.17 10.17 0 0 1 9.73 11a9 9 0 0 1 1.81-1.42A12 12 0 0 1 16 8V7a11.43 11.43 0 0 0-5.26 1.08 10.28 10.28 0 0 0-4.12 3.65 15.07 15.07 0 0 0-1 1.87 7 7 0 0 1-.38-3.73 5.24 5.24 0 0 1 3.14-4 8.93 8.93 0 0 1 3.82-.84c.62 0 1.23.06 1.87.11a16.2 16.2 0 0 0 6-.35C20 7.55 19.5 14 14.61 16.08z"></path></svg>// Empty star
+                    }
+                </div>
+            </div>
+        </a>
+    }
+    @if (count == 0)
+    {
+        <br>
+        <h3 class="flex items-center text-2xl text-center mx-10 text-btn "> This fabric doesn't exist</h3>
+    }
+    <div class="page-navigation">
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page, search = Request.QueryString["search"] }))
+    </div>
+
+    <div class="flex justify-center items-center mb-10">
+        <img class="md:h-auto max-w-2xs" src="~/Content/images/Line.png" alt="">
+    </div>
+    <p class="flex justify-center text-xl font-bold">What to do next?</p>
+    <div class="row flex flex-wrap justify-center mt-3 my-5">
+
+        <div class="mx-auto my-2 w-80 bg-white border border-gray-200 rounded-lg shadow">
+            <img class="rounded-lg mx-auto mt-5" src="~/Content/images/brand.png" alt="" />
+            <div class="py-5 px-3 text-center">
+                <h5 class="mb-5 text-xl font-bold tracking-tight text-btn">Explore the most sustainable brands</h5>
+                <div class="flex-column">
+                    <a href="@Url.Action("Index", "Brands")" type="button" class="text-white bg-btn hover:bg-btnOn focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2">Sustainable Brands</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="mx-auto my-2 w-80 bg-white border border-gray-200 rounded-lg shadow">
+            <img class="rounded-lg mx-auto mt-5" src="~/Content/images/recycle.png" alt="" />
+            <div class="py-5 px-3 text-center">
+                <h5 class="mb-5 text-xl font-bold tracking-tight text-btn">Find local recycling shops & give old clothes a new life</h5>
+                <div class="flex-column">
+                    <a href="@Url.Action("Index", "Locations")" type="button" class="text-white bg-btn hover:bg-btnOn focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2">Recycling locations</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="mx-auto my-2 w-80 bg-white border border-gray-200 rounded-lg shadow">
+            <img class="rounded-lg mx-auto mt-5" src="~/Content/images/footprint.png" alt="" />
+            <div class="py-5 px-3 text-center">
+                <h5 class="mb-5 text-xl font-bold tracking-tight text-btn">Curious about your fashion footprint? </h5>
+                <div class="flex-column">
+                    <a href="@Url.Action("Index", "ShoppingImpact")" type="button" class="text-white bg-btn hover:bg-btnOn focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2">Calculate Footprint</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    console.log('Total items in view:', @count);
+
+    document.addEventListener("DOMContentLoaded", function () {
+        // show text of file name when file chosen
+        var fileInput = document.getElementById("dropzone-file");
+        var fileNameSpan = document.getElementById("file-name");
+
+        // update text
+        fileInput.addEventListener("change", function () {
+            if (fileInput.files.length > 0) {
+                var fileName = fileInput.files[0].name;
+                fileNameSpan.textContent = "Selected file: " + fileName;
+                fileNameSpan.style.color = '';
+            } else {
+                fileNameSpan.textContent = "";
+            }
+        });
+    });
+
+    function handleFileInputChange(event) {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = function () {
+                const base64String = reader.result.split(',')[1];
+                localStorage.setItem('base64File', base64String);
+            };
+            reader.onerror = function (error) {
+                console.error('Error: ', error);
+            };
+        }
+    }
+
+    function submitFile() {
+        const base64String = localStorage.getItem('base64File');
+        if (base64String) {
+
+            callAPI(base64String);
+        } else {
+            console.error('Base64 string is empty.');
+        }
+    }
+
+    function callAPI(base64String) {
+        // Make API call with base64String
+        // Use AJAX or fetch API to send the base64String to your backend
+        // Example:
+
+        const requestBody = new URLSearchParams();
+        requestBody.append('image', base64String);
+        requestBody.append('detect_direction', 'false');
+        requestBody.append('detect_language', 'false');
+        requestBody.append('paragraph', 'false');
+        requestBody.append('probability', 'false');
+        console.log("body", requestBody);
+        fetch('https://aip.baidubce.com/rest/2.0/ocr/v1/general_basic?access_token=24.02bc84cf3b1e06d631fc5094952742a1.2592000.1716917158.282335-64852214', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'Accept': 'application/json',
+            },
+            body: requestBody.toString(),
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log('API Response:', data);
+                // Handle API response
+                if (data.words_result && Array.isArray(data.words_result)) {
+                    const words = data.words_result.map(item => item.words);
+                    const wordsParam = encodeURIComponent(words.join(','));
+                    const url = `/Fabrics/Index?words=${wordsParam}`;
+                    window.location.href = url;
+                }
+                else {
+                    const fileNameSpan = document.getElementById("file-name");
+                    fileNameSpan.innerText = data.error_msg;
+                    fileNameSpan.style.color = 'red';
+                    fileNameSpan.style.display = "inline";
+                }
+
+            })
+            .catch(error => {
+                console.error('API Error:', error);
+                const fileNameSpan = document.getElementById("file-name");
+                fileNameSpan.innerText = 'Error: ' + error.message;
+                fileNameSpan.style.color = 'red';
+                fileNameSpan.style.display = "inline";
+            });
+
+    }
+</script>
+

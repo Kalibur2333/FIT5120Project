@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "Uploadlabel";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Uploadlabel</h2>
+
+
+<div>Upload</div>
+<input type="file" />
+<script>
+    var div = document.querySelector('div');
+
+    div.addEventListener("dragenter", function (e) {  //拖进
+        e.preventDefault();
+    })
+    div.addEventListener("dragover", function (e) {  //拖来拖去 
+        e.preventDefault();
+    })
+    div.addEventListener('drop', function (event) {
+        event.preventDefault();
+        // 将类数组对象 转换成数组
+        // var fileList = Array.from(event.dataTransfer.files);  //  es6 格式
+        var fileList = [].slice.call(event.dataTransfer.files);  // es5 格式
+        console.log(fileList)
+    })
+
+</script>

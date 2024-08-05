@@ -1,0 +1,104 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div>
+
+    <section class="flex flex-col items-center bg-white md:flex-row">
+        <div class="flex flex-col justify-between leading-normal items-center mx-auto">
+            <!--Reduce the size-->
+            <h3 class="my-10 text-4xl font-bold text-gray-700 lg:text-3xl mx-auto sm:px-16 text-center lg:px-auto">Welcome to <span style="color: #757F4D; font-weight: bold;">Wardrobe for Earth</span></h3>
+            <p class="mb-3 text-3xl font-normal text-gray-700 lg:text-2xl mx-auto sm:px-16 text-center text-xl lg:px-auto">where your shopping habits lead the way to a</p>
+            <p class="mb-8 text-3xl font-normal text-btn lg:text-2xl mx-auto sm:px-16 text-xl lg:px-auto">Greener Planet!</p>
+            <img class="md:h-auto max-w-2xs sm:max-w-3xs" src="~/Content/images/Line.png" alt="">
+            <a href="#1" class="">
+                <box-icon size="lg" name='chevrons-down' type='solid' animation='tada' color='#869256'></box-icon>
+            </a>  
+            
+        </div>
+        <img class="md:h-auto w-50 ms-auto" src="~/Content/images/info-img3.jpg" alt="">
+    </section>
+
+    <section id="1" class="flex flex-col items-center justify-center text-center bg-gray-100 md:flex-row md:justify-center md:items-center px-20 py-5">
+        <div class="flex flex-col justify-between items-center text-center mx-auto">
+            <!--Reduce the size-->
+
+            <h3 class="my-2 text-3xl font-bold text-gray-700 lg:text-xl sm:text-lg"><span style="color: #757F4D; font-weight: bold;">Did you know</span> Australia<span style="color: #757F4D; font-weight: bold;"> is the</span> second<span style="color: #757F4D; font-weight: bold;"> highest consumer country of </span></h3>
+            <h3 class="my-2 text-3xl font-bold text-btn lg:text-xl sm:text-lg">clothes and consequentially, textile waste has become</h3>
+            <h3 class="mb-5 mt-2 text-3xl font-bold text-btn lg:text-xl sm:text-lg">a massive contributor to Australia’s waste problem.</h3>
+            <h3 class="my-2 text-3xl font-bold text-btn lg:text-xl sm:text-lg">This clothing waste problem is only worsening as</h3>
+            <h3 class="my-2 text-3xl font-bold text-btn lg:text-xl sm:text-lg">Australians are buying on average <span style="color: #374151; font-weight: bold;"> 60% more clothing</span></h3>
+            <h3 class="my-2 text-3xl font-bold text-btn lg:text-xl sm:text-lg"><span style="color: #374151; font-weight: bold;">than 15 years ago</span>, and only keeping them for half as long.</h3>
+            <p class="max-w-lg mt-5 mb-3 text-3xl font-bold text-btnOn lg:text-xl sm:text-lg" style="line-height: 3rem;">By understanding how your own fashion consumption impacts the environment, you can make a change and lead the way to net zero carbon emissions by 2030. </p>
+            <a href="@Url.Action("Index", "ShoppingImpact")" type="button" class="text-white bg-btn hover:bg-btnOn ring-4 ring-lime-200 hover:ring-lime-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center">
+                Calculate Footprint
+                <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+                </svg>
+            </a>
+        </div>
+        <img class="h-auto max-w-md mx-auto sm:max-w-[400px]" src="~/Content/images/home3.png" alt="">
+    </section>
+
+    <section class="bg-white items-center mx-auto mt-4">
+        <div class="px-auto mx-auto max-w-screen-xl text-center">
+            <h1 class="mb-4 text-4xl font-bold tracking-tight leading-none text-btn md:text-3xl lg:text-3xl sm:text-lg">Every year, Australians throw away clothes weighing 200,000 tonnes</h1>
+            <!--
+            Reduce the tile sizes to make the four tiles fit the screen
+            Change “as much as” to “as heavy as”
+            Change "Blue Whales" to lower case
+            -->
+            <p class="mb-4 text-3xl font-normal text-gray-700 lg:text-2xl sm:px-16 lg:px-40 sm:text-lg">that's as heavy as 2,000 blue whales, the largest animal on the planet!</p>
+            <img class="object-cover max-w-full" src="~/Content/images/home2.png" alt="">
+        </div>
+    </section>
+
+    <div class="flex justify-center items-center mb-10">
+        <img class="md:h-auto max-w-2xs" src="~/Content/images/Line.png" alt="">
+    </div>
+    <p class="flex justify-center text-xl font-bold">What to do next?</p>
+
+    <div class="row flex flex-wrap justify-center mt-3 my-5">
+
+        <div class="justify-center items-center mx-auto my-2 w-80 bg-white border border-gray-200 rounded-lg shadow">
+            <img class="rounded-lg mx-auto mt-5" src="~/Content/images/fabric.png" alt="" />
+            <div class="py-5 px-3 text-center">
+                <h5 class="mb-5 text-xl font-bold tracking-tight text-btn">Explore the most sustainable fabrics</h5>
+                <div class="flex-column">
+                    <a href="@Url.Action("Index", "Fabrics")" type="button" class="text-white bg-btn hover:bg-btnOn focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2">Sustainable Fabrics</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="mx-auto my-2 w-80 bg-white border border-gray-200 rounded-lg shadow">
+            <img class="rounded-lg mx-auto mt-5" src="~/Content/images/brand.png" alt="" />
+            <div class="py-5 px-3 text-center">
+                <h5 class="mb-5 text-xl font-bold tracking-tight text-btn">Explore the most sustainable brands</h5>
+                <div class="flex-column">
+                    <a href="@Url.Action("Index", "Brands")" type="button" class="text-white bg-btn hover:bg-btnOn focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2">Sustainable Brands</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="mx-auto my-2 w-80 bg-white border border-gray-200 rounded-lg shadow">
+            <img class="rounded-lg mx-auto mt-5" src="~/Content/images/recycle.png" alt="" />
+            <div class="py-5 px-3 text-center">
+                <h5 class="mb-5 text-xl font-bold tracking-tight text-btn">Find local recycling shops & give old clothes a new life</h5>
+                <div class="flex-column">
+                    <a href="@Url.Action("Index", "Locations")" type="button" class="text-white bg-btn hover:bg-btnOn focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2">Recycling locations</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="mx-auto my-2 w-80 bg-white border border-gray-200 rounded-lg shadow">
+            <img class="rounded-lg mx-auto mt-5" src="~/Content/images/footprint.png" alt="" />
+            <div class="py-5 px-3 text-center">
+                <h5 class="mb-5 text-xl font-bold tracking-tight text-btn">Curious about your fashion footprint? </h5>
+                <div class="flex-column">
+                    <a href="@Url.Action("Index", "ShoppingImpact")" type="button" class="text-white bg-btn hover:bg-btnOn focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2">Calculate Footprint</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

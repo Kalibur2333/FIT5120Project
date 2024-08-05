@@ -1,0 +1,277 @@
+﻿@model FIT5120Project.Models.CalculatorViewModels
+@{
+    ViewBag.Title = "Question1";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Question1", "Calculator", FormMethod.Post))
+{
+    <label>How many items of clothing do you buy in a month?</label>
+    <input type="number" name="ShopQuantityMonth" />
+
+    <button type="submit">Next</button>
+}
+
+<div>
+    @Html.LabelFor(m => m.ShopQuantityMonth, "How many items of clothing do you buy in a month?")
+    @Html.TextBoxFor(m => m.ShopQuantityMonth)
+    @Html.ValidationMessageFor(m => m.ShopQuantityMonth)
+</div>
+
+<div>
+    @Html.LabelFor(m => m.OnlineQuantity, "How many times do you do online shopping?")
+    @Html.TextBoxFor(m => m.OnlineQuantity)
+    @Html.ValidationMessageFor(m => m.OnlineQuantity)
+</div>
+
+<div>
+    @Html.LabelFor(m => m.ReturnPercOnline, "What percentage of your online shopping purchases do you typically return?")
+    @Html.TextBoxFor(m => m.ReturnPercOnline)
+    @Html.ValidationMessageFor(m => m.ReturnPercOnline)
+</div>
+
+<div>
+    @Html.LabelFor(m => m.InstoreQuantity, "How many times do you shop in-store?")
+    @Html.TextBoxFor(m => m.InstoreQuantity)
+    @Html.ValidationMessageFor(m => m.InstoreQuantity)
+</div>
+
+<div>
+    @Html.LabelFor(m => m.ReturnPercInstore, "What percentage of your in-store purchases do you typically return?")
+    @Html.TextBoxFor(m => m.ReturnPercInstore)
+    @Html.ValidationMessageFor(m => m.ReturnPercInstore)
+</div>
+
+<div>
+    @Html.LabelFor(m => m.LandfillPerc, "What percentage of your unwanted clothing goes to a landfill?")
+    @Html.TextBoxFor(m => m.LandfillPerc)
+    @Html.ValidationMessageFor(m => m.LandfillPerc)
+</div>
+
+<!-- Slider controls -->
+<button type="button" class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
+    <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+        <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4" />
+        </svg>
+        <span class="sr-only">Previous</span>
+    </span>
+</button>
+<button type="button" class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
+    <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+        <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
+        </svg>
+        <span class="sr-only">Next</span>
+    </span>
+</button>
+
+@using (Html.BeginForm("CalculateImpact", "ShoppingImpact", FormMethod.Post))
+{
+    <div id="default-carousel" class="relative w-full" data-carousel="static">
+        <!-- Slider indicators -->
+        <div class="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse">
+            <button type="button" class="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0"></button>
+            <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
+            <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
+            <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 4" data-carousel-slide-to="3"></button>
+            <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 5" data-carousel-slide-to="4"></button>
+            <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 6" data-carousel-slide-to="5"></button>
+            <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 7" data-carousel-slide-to="6"></button>
+        </div>
+        <!-- Carousel wrapper -->
+        <div class="relative h-[70vh] overflow-hidden rounded-lg md:h-[70vh]">
+            <!-- Item 1 -->
+            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                <section>
+                    <div class="flex justify-center mt-3">
+                        <div class="w-1/2 max-w-screen-lg mt-10 ms-20">
+                            <p class="mb-4 text-3xl font-bold text-black md:text-3xl">Ever wonder how your clothing shopping habits impact the environment?</p>
+                            <br />
+                            <p class="mb-8 text-lg font-normal text-btn lg:text-3xl">With just six questions, inspired by insights from thredUP, our Fashion Footprint Calculator will reveal your personal fashion impact!</p>
+                            <div class="flex">
+                                <button type="button" class="focus:outline-none text-white bg-btn hover:bg-btnOn focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-3xl px-5 py-3 mt-5 mb-2" data-carousel-next>
+                                    <span class="">START</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="w-1/2 flex justify-end">
+                            <img class="w-full h-auto lg:max-w-2xl md:max-w-xl" src="~/Content/images/Qs.jpg" alt="">
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <!-- Item 2 -->
+            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                <section class="">
+                    <div class="flex justify-center mt-3">
+                        <div class="w-1/2 max-w-screen-lg mt-10 ms-20">
+                            <p class="mb-4 text-3xl font-bold text-black md:text-3xl">@Html.LabelFor(m => m.ShopQuantityMonth, "How many items of clothing do you buy in a month?") </p>
+                            <br />
+                            <p class="mb-8 text-lg font-normal text-btn lg:text-3xl">
+                                @Html.TextBoxFor(m => m.ShopQuantityMonth)
+                                @Html.ValidationMessageFor(m => m.ShopQuantityMonth)
+                            </p>
+                            <div class="flex">
+                                <button type="button" class="text-btn hover:text-white border border-btn hover:bg-btnOn focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-full text-3xl px-5 py-3 ms-5 me-2 mt-5 mb-2" data-carousel-prev>
+                                    <span class="">BACK</span>
+                                </button>
+                                <button type="button" class="focus:outline-none text-white bg-btn hover:bg-btnOn focus:ring-4 focus:ring-green-300 font-medium rounded-full text-3xl px-5 py-3 ms-5 me-2 mt-5 mb-2" data-carousel-next>
+                                    <span class="">NEXT</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="w-1/2 flex justify-end">
+                            <img class="w-full h-auto lg:max-w-2xl md:max-w-xl" src="~/Content/images/Q1.jpg" alt="">
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <!-- Item 3 -->
+            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                <section class="">
+                    <div class="flex justify-center mt-3">
+                        <div class="w-1/2 max-w-screen-lg mt-10 ms-20">
+                            <p class="mb-4 text-3xl font-bold text-black md:text-3xl">
+                                @Html.LabelFor(m => m.OnlineQuantity, "How many times do you do online shopping?")
+                            </p>
+                            <br />
+                            <p class="mb-8 text-lg font-normal text-btn lg:text-3xl">
+                                @Html.TextBoxFor(m => m.OnlineQuantity)
+                                @Html.ValidationMessageFor(m => m.OnlineQuantity)
+                            </p>
+                            <div class="flex">
+                                <button type="button" class="text-btn hover:text-white border border-btn hover:bg-btnOn focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-full text-3xl px-5 py-3 ms-5 me-2 mt-5 mb-2" data-carousel-prev>
+                                    <span class="">BACK</span>
+                                </button>
+                                <button type="button" class="focus:outline-none text-white bg-btn hover:bg-btnOn focus:ring-4 focus:ring-green-300 font-medium rounded-full text-3xl px-5 py-3 ms-5 me-2 mt-5 mb-2" data-carousel-next>
+                                    <span class="">NEXT</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="w-1/2 flex justify-end">
+                            <img class="w-full h-auto lg:max-w-2xl md:max-w-xl" src="~/Content/images/Q2.jpg" alt="">
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <!-- Item 4 -->
+            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                <section class="">
+                    <div class="flex justify-center mt-3">
+                        <div class="w-1/2 max-w-screen-lg mt-10 ms-20">
+                            <p class="mb-4 text-3xl font-bold text-black md:text-3xl">
+                                @Html.LabelFor(m => m.ReturnPercOnline, "What percentage of your online shopping purchases do you typically return?")
+                            </p>
+                            <br />
+                            <p class="mb-8 text-lg font-normal text-btn lg:text-3xl">
+                                @Html.TextBoxFor(m => m.ReturnPercOnline)
+                                @Html.ValidationMessageFor(m => m.ReturnPercOnline)
+                            </p>
+                            <div class="flex">
+                                <button type="button" class="text-btn hover:text-white border border-btn hover:bg-btnOn focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-full text-3xl px-5 py-3 ms-5 me-2 mt-5 mb-2" data-carousel-prev>
+                                    <span class="">BACK</span>
+                                </button>
+                                <button type="button" class="focus:outline-none text-white bg-btn hover:bg-btnOn focus:ring-4 focus:ring-green-300 font-medium rounded-full text-3xl px-5 py-3 ms-5 me-2 mt-5 mb-2" data-carousel-next>
+                                    <span class="">NEXT</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="w-1/2 flex justify-end">
+                            <img class="w-full h-auto lg:max-w-2xl md:max-w-xl" src="~/Content/images/Q3.jpg" alt="">
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <!-- Item 5 -->
+            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                <section class="">
+                    <div class="flex justify-center mt-3">
+                        <div class="w-1/2 max-w-screen-lg mt-10 ms-20">
+                            <p class="mb-4 text-3xl font-bold text-black md:text-3xl">
+                                @Html.LabelFor(m => m.InstoreQuantity, "How many times do you shop in-store?")
+                            </p>
+                            <br />
+                            <p class="mb-8 text-lg font-normal text-btn lg:text-3xl">
+                                @Html.TextBoxFor(m => m.InstoreQuantity)
+                                @Html.ValidationMessageFor(m => m.InstoreQuantity)
+                            </p>
+                            <div class="flex">
+                                <button type="button" class="text-btn hover:text-white border border-btn hover:bg-btnOn focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-full text-3xl px-5 py-3 ms-5 me-2 mt-5 mb-2" data-carousel-prev>
+                                    <span class="">BACK</span>
+                                </button>
+                                <button type="button" class="focus:outline-none text-white bg-btn hover:bg-btnOn focus:ring-4 focus:ring-green-300 font-medium rounded-full text-3xl px-5 py-3 ms-5 me-2 mt-5 mb-2" data-carousel-next>
+                                    <span class="">NEXT</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="w-1/2 flex justify-end">
+                            <img class="w-full h-auto lg:max-w-2xl md:max-w-xl" src="~/Content/images/Q4.jpg" alt="">
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <!-- Item 6 -->
+            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                <section class="">
+                    <div class="flex justify-center mt-3">
+                        <div class="w-1/2 max-w-screen-lg mt-10 ms-20">
+                            <p class="mb-4 text-3xl font-bold text-black md:text-3xl">
+                                @Html.LabelFor(m => m.ReturnPercInstore, "What percentage of your in-store purchases do you typically return?")
+                            </p>
+                            <br />
+                            <p class="mb-8 text-lg font-normal text-btn lg:text-3xl">
+                                @Html.TextBoxFor(m => m.ReturnPercInstore)
+                                @Html.ValidationMessageFor(m => m.ReturnPercInstore)
+                            </p>
+                            <div class="flex">
+                                <button type="button" class="text-btn hover:text-white border border-btn hover:bg-btnOn focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-full text-3xl px-5 py-3 ms-5 me-2 mt-5 mb-2" data-carousel-prev>
+                                    <span class="">BACK</span>
+                                </button>
+                                <button type="button" class="focus:outline-none text-white bg-btn hover:bg-btnOn focus:ring-4 focus:ring-green-300 font-medium rounded-full text-3xl px-5 py-3 ms-5 me-2 mt-5 mb-2" data-carousel-next>
+                                    <span class="">NEXT</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="w-1/2 flex justify-end">
+                            <img class="w-full h-auto lg:max-w-2xl md:max-w-xl" src="~/Content/images/Q5.jpg" alt="">
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <!-- Item 7 -->
+            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                <section class="">
+                    <div class="flex justify-center mt-3">
+                        <div class="w-1/2 max-w-screen-lg mt-10 ms-20">
+                            <p class="mb-4 text-3xl font-bold text-black md:text-3xl">
+                                @Html.LabelFor(m => m.LandfillPerc, "What percentage of your unwanted clothing goes to a landfill?")
+                            </p>
+                            <br />
+                            <p class="mb-8 text-lg font-normal text-btn lg:text-3xl">
+                                @Html.TextBoxFor(m => m.LandfillPerc)
+                                @Html.ValidationMessageFor(m => m.LandfillPerc)
+                            </p>
+                            <div class="flex">
+                                <button type="button" class="text-btn hover:text-white border border-btn hover:bg-btnOn focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-full text-3xl px-5 py-3 ms-5 me-2 mt-5 mb-2" data-carousel-prev>
+                                    <span class="">BACK</span>
+                                </button>
+                                <div>
+                                    <input type="submit" value="Calculate Impact" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-1/2 flex justify-end">
+                            <img class="w-full h-auto lg:max-w-2xl md:max-w-xl" src="~/Content/images/Q6.jpg" alt="">
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+}
+<h2>Shopping Impact Calculator</h2>
+
+<div>
+    <input type="submit" value="Calculate Impact" />
+</div>

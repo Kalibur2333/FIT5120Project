@@ -1,0 +1,95 @@
+﻿@model IEnumerable<FIT5120Project.Models.Location>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+
+<section class="">
+    <div class="flex justify-center ">
+        <div class="max-w-screen-lg mt-20 mx-10">
+            <p class="mb-4 text-3xl font-bold text-black md:text-2xl mx-20">Did you know that recycling clothes reduces the need for new textile production, reducing water usage, chemical pollution, and greenhouse gas emissions?</p>
+            <br />
+            <p class="mb-8 text-lg font-normal text-btn md:text-2xl mx-20">Scroll down to find your nearest recycling location to be part of the change!</p>
+            <div class="flex justify-center">
+                <img class="md:h-auto max-w-2xs" src="~/Content/images/Line.png" alt="">
+            </div>
+        </div>
+        <div>
+            <img class="md:h-auto max-w-lg" src="~/Content/images/MapHero.png" alt="">
+        </div>
+    </div>
+</section>
+
+<!--Stretch bg img to fit the full width-->
+<section class="bg-center bg-no-repeat" style="background-image: url('../Content/images/MapPic.png'); background-size: 100% auto;">
+    <div class="flex justify-center px-4 mx-auto max-w-screen-xl text-center py-24 lg:py-56">
+        <div>
+            <h1 class="mb-4 text-3xl font-bold tracking-tight leading-none text-black max-w-screen-lg mx-auto md:text-2xl lg:text-3xl">
+                Explore recycling points in Melbourne CBD
+            </h1>
+            <h1 class="mb-4 text-3xl font-bold tracking-tight leading-none text-black max-w-screen-lg mx-auto md:text-2xl lg:text-3xl">
+                Clear out your closet, and give your clothes a new life while reducing waste!
+            </h1>
+        </div>     
+    </div>
+</section>
+
+
+<div class="container font-bold mt-5">
+    <p class="text-3xl text-btn">Recycling Drop-off Locations in Melbourne CBD</p>
+</div>
+
+<section class="h-[600px] max-w-screen-2xl mx-auto mt-5">
+    <div id="map" class="h-[600px]"></div>
+</section>
+
+<div class="flex justify-center items-center my-10">
+    <img class="md:h-auto max-w-2xs" src="~/Content/images/Line.png" alt="">
+</div>
+<p class="flex justify-center text-xl font-bold">What to do next?</p>
+
+<div class="row flex flex-wrap justify-center mt-3 my-5">
+
+    <div class="justify-center items-center mx-auto my-2 w-80 bg-white border border-gray-200 rounded-lg shadow">
+        <img class="rounded-lg mx-auto mt-5" src="~/Content/images/fabric.png" alt="" />
+        <div class="py-5 px-3 text-center">
+            <h5 class="mb-5 text-xl font-bold tracking-tight text-btn">Explore the most sustainable fabrics</h5>
+            <div class="flex-column">
+                <a href="@Url.Action("Index", "Fabrics")" type="button" class="text-white bg-btn hover:bg-btnOn focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2">Sustainable Fabrics</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="mx-auto my-2 w-80 bg-white border border-gray-200 rounded-lg shadow">
+        <img class="rounded-lg mx-auto mt-5" src="~/Content/images/brand.png" alt="" />
+        <div class="py-5 px-3 text-center">
+            <h5 class="mb-5 text-xl font-bold tracking-tight text-btn">Explore the most sustainable brands</h5>
+            <div class="flex-column">
+                <a href="@Url.Action("Index", "Brands")" type="button" class="text-white bg-btn hover:bg-btnOn focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2">Sustainable Brands</a>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="mx-auto my-2 w-80 bg-white border border-gray-200 rounded-lg shadow">
+        <img class="rounded-lg mx-auto mt-5" src="~/Content/images/footprint.png" alt="" />
+        <div class="py-5 px-3 text-center">
+            <h5 class="mb-5 text-xl font-bold tracking-tight text-btn">Curious about your fashion footprint? </h5>
+            <div class="flex-column">
+                <a href="@Url.Action("Index", "ShoppingImpact")" type="button" class="text-white bg-btn hover:bg-btnOn focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2">Calculate Footprint</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/map")
+@section scripts{
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCTs72pM8wYtd4HQmlBvnpwTmoAax-bl9M&callback=initMap&libraries=places&v=weekly" async>
+    </script>
+}
+
+

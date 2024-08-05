@@ -1,0 +1,129 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>@ViewBag.Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+
+    @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/Content/css")
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        btn: '#757F4D',
+                        btnOn: '#869256',
+                        HeroText: '#ABDD78',
+                        CardText: '#817B7B',
+                        bad: '#B16554',
+                        bluebar: '#A5BC4A',
+                        slidebar: '#333333BF',
+                        bggrey: '#F5F5F5',
+                        border1: '#B8C38F',
+                        result: '#F4ECE5',
+                        resChart: '#99B5D8'
+                    },
+                    screens: {
+                        sm: '400px',
+                        md: '768px',
+                        lg: '976px',
+                        xl: '1440px',
+                    },
+
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <nav class="bg-btn fixed w-full z-20 top-0 start-0 border-b border-btnOn">
+        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-2">
+
+            <a href="@Url.Action("Index", "Home")" class="flex items-center space-x-2 rtl:space-x-reverse">
+                <img src="~/Content/images/Logo.svg" class="h-8" alt="Logo" />
+                <span class="self-center text-xl font-semibold whitespace-nowrap text-white">Wardrobe for Earth</span> <!--  -->
+            </a>
+            <button data-collapse-toggle="navbar-multi-level" type="button" class="inline-flex items-center p-1 w-8 h-8 justify-center text-sm text-white rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200" aria-controls="navbar-multi-level" aria-expanded="false">
+
+                <span class="sr-only">Open main menu</span>
+                <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                    <!-- Adjusted SVG size -->
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15" />
+                </svg>
+            </button>
+            <div class="hidden w-full md:block md:w-auto" id="navbar-multi-level">
+                <ul class="flex flex-col p-2 md:p-0 mt-2 rounded-lg bg-btn md:space-x-6 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-btn">
+                    <!-- Reduced padding and margin -->
+                    <li>
+                        <a href="@Url.Action("Index", "Home")" class="block py-1 px-2 text-white bg-HeroText rounded md:bg-transparent md:text-HeroText md:p-0" aria-current="page">Home</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index", "Fabrics")" class="block py-1 px-2 text-white rounded hover:bg-HeroText md:hover:bg-transparent md:border-0 md:hover:text-HeroText md:p-0">Sustainable Fabrics</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index", "Brands")" class="block py-1 px-2 text-white rounded hover:bg-HeroText md:hover:bg-transparent md:border-0 md:hover:text-HeroText md:p-0">Sustainable Brands</a>
+                    </li>
+
+                    <li>
+                        <a href="@Url.Action("Index", "Locations")" class="block py-1 px-2 text-white rounded hover:bg-HeroText md:hover:bg-transparent md:border-0 md:hover:text-HeroText md:p-0">Recycling Locations</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index", "ShoppingImpact")" class="block py-1 px-2 text-white rounded hover:bg-HeroText md:hover:bg-transparent md:border-0 md:hover:text-HeroText md:p-0">Calculate Footprint</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+
+    <div class="pt-16">
+        @RenderBody()
+        <a href="#" class="flex fixed bottom-5 right-5 bg-green-900 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(255, 255, 255, 1);transform: ;msFilter:;"><path d="M6 4h12v2H6zm5 10v6h2v-6h5l-6-6-6 6z"></path></svg>
+            Top
+        </a>
+        <hr />
+    </div>
+
+
+    <footer class="bg-btn mt-3">
+        <div class="w-full max-w-screen-xl mx-auto p-4 md:p-6">
+            <!--  -->
+            <div class="sm:flex sm:items-center sm:justify-between">
+                <a href="#" class="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
+
+                    <img src="~/Content/images/Logo.svg" class="h-8" alt="Logo" />
+                    <span class="self-center text-xl font-semibold whitespace-nowrap text-white">Wardrobe for Earth</span> <!-- Slightly reduced font size -->
+                </a>
+                <ul class="flex flex-wrap items-center mb-4 text-sm font-medium text-white sm:mb-0">
+                    <!-- Adjusted margin -->
+
+                </ul>
+            </div>
+            <hr class="my-4 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-6" /> <!-- Reduced margin -->
+            <span class="block text-sm text-white sm:text-center">© 2024 <a href="#" class="hover:underline">Wardrobe For Earth</a>. All Rights Reserved.</span>
+        </div>
+    </footer>
+    
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+    <script src="https://cdn.datatables.net/2.0.3/js/dataTables.js"></script>
+    @Scripts.Render("~/bundles/jquery")
+    
+    @RenderSection("scripts", required: false)
+
+
+
+</body>
+</html>
+

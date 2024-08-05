@@ -1,0 +1,174 @@
+﻿@model PagedList.IPagedList<FIT5120Project.Models.Brand>
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+
+<!--image white background, change in the future-->
+<section class="flex flex-col items-center bg-gray-100 md:flex-row">
+    <div class="flex flex-col justify-between leading-normal items-center mx-auto">
+        <p class="mb-8 text-3xl font-normal text-btn lg:text-2xl mx-auto sm:px-16 lg:px-auto text-center">Did you know that just over half of Australians say that sustainability is an important factor when making a retail purchase? </p>
+        <p class="mb-8 text-3xl font-normal text-black lg:text-2xl mx-auto sm:px-16 lg:px-auto text-center">With this in mind, we can help you learn about the sustainability of your favorite brands, empowering you to make choices that align with your values</p>
+        <img class="md:h-auto max-w-2xs" src="~/Content/images/Line2.png" alt="">
+    </div>
+    <img class="md:h-auto w-50 ms-auto" src="~/Content/images/BrandHero.jpg" alt="">
+</section>
+
+<div class="flex justify-center items-center mb-10">
+    <div class="flex justify-center mt-3 text-3xl text-gray-900">
+        <p class="mt-3">Start by searching a brand name below to see its sustainability rating</p>      
+        <img class="w-20 h-auto" src="~/Content/images/shirt.png" alt="">
+    </div>
+</div>
+
+<div class="container">
+
+    <form method="get" action="@Url.Action("Index", "Brands")" class="my-3 mx-auto max-w-screen-xl bg-gray-100 border border-gray-500 rounded-lg flex justify-between">
+        <div class="flex">
+            <svg class="mt-3 ms-2 text-gray-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 18a7.952 7.952 0 0 0 4.897-1.688l4.396 4.396 1.414-1.414-4.396-4.396A7.952 7.952 0 0 0 18 10c0-4.411-3.589-8-8-8s-8 3.589-8 8 3.589 8 8 8zm0-14c3.309 0 6 2.691 6 6s-2.691 6-6 6-6-2.691-6-6 2.691-6 6-6z"></path></svg>
+            <input type="search" name="search" id="default-search" placeholder="Search brands..." class="ms-3 p-3 w-[90vh] text-sm bg-gray-100 text-gray-900 border border-white rounded-lg" />
+        </div>
+        <button type="submit" class="p-2 border rounded bg-btn text-white m-1">Search</button>
+    </form>
+
+    <!--A-Z Z-A High-Low Low-High-->
+    <div class="flex justify-end">
+
+        
+
+        <button id="dropdownHoverButton" data-dropdown-toggle="dropdownHover" data-dropdown-trigger="hover" class="text-btn bg-white mx-5 mb-3 hover:bg-gray-100 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center border border-2 border-btn" type="button">
+            Sort By <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4" />
+            </svg>
+        </button>
+    </div>
+
+
+    <!-- Dropdown menu -->
+    <div id="dropdownHover" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
+        <ul class="py-2 text-sm text-gray-700" aria-labelledby="dropdownHoverButton">
+            <li class="text-lg ms-2 mt-2 text-btn text-center">
+                @Html.ActionLink("A-Z", "Index", new { sortOrder = "name_asc", currentFilter = ViewBag.CurrentFilter })
+            </li>
+            <li class="text-lg ms-2 mt-2 text-btn text-center">
+                @Html.ActionLink("Z-A", "Index", new { sortOrder = "name_desc", currentFilter = ViewBag.CurrentFilter })
+            </li>
+            <li class="text-lg ms-2 mt-2 text-btn text-center">
+                @Html.ActionLink("Low-High", "Index", new { sortOrder = "score_asc", currentFilter = ViewBag.CurrentFilter })
+            </li>
+            <li class="text-lg ms-2 mt-2 text-btn text-center">
+                @Html.ActionLink("High-Low", "Index", new { sortOrder = "score_desc", currentFilter = ViewBag.CurrentFilter })
+            </li>
+        </ul>
+    </div>
+
+    <div class="flex items-center justify-between bg-btn border border-gray-200 rounded-lg shadow md:max-w-m">
+        <h5 class="text-lg font-bold text-white py-4 px-5">Name<svg class="mx-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(255, 255, 255, 1);"><path d="m11.998 17 7-8h-14z"></path></svg></h5>
+        <div class="flex items-center px-5 py-4">
+            <div class="flex  me-[260px]">
+                <p class="text-white text-lg font-bold">Scores<svg class="mx-3" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(255, 255, 255, 1);"><path d="m11.998 17 7-8h-14z"></path></svg></p>
+                <button data-popover-target="popover-default" type="button" class="text-btn bg-white mx-5 mb-3 hover:bg-gray-100 font-medium rounded-full text-sm px-3 py-2.5 text-center inline-flex items-center border border-2 border-btn">?</button>
+                <div data-popover id="popover-default" role="tooltip" class="absolute mx-auto z-10 invisible inline-block text-sm text-gray-700 transition-opacity duration-300 bg-white border border-gray-900 rounded-lg shadow-sm opacity-0" style="width: 450px;">
+                    <div class="px-3 py-2 bg-gray-100 border-b border-gray-200 rounded-t-lg">
+                        <h3 class="font-semibold text-btn">What does the sustainability rating mean?</h3>
+                    </div>
+                    <div class="px-3 py-2">
+                        <p>Sustainability ratings are calculated using the Fashion Transparency Index, an annual report detailing the sustainability practices of brands worldwide. It ranks these brands based on their policies and practices in supply chain and operation, allowing a fair comparison based on a trusted external assessment.</p>
+                        <p class="mt-2">The ratings reflect considerations like waste, recycling, hazardous chemicals, climate, working conditions, and animal welfare.</p>
+                    </div>
+                    <div data-popper-arrow></div>
+                </div>
+            </div>
+            <div class="flex items-center">
+                @for (int i = 0; i < 5; i++)
+                {
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(58, 191, 33, 0.8);"><path d="m22 3.41-.12-1.26-1.2.4a13.84 13.84 0 0 1-6.41.64 11.87 11.87 0 0 0-6.68.9A7.23 7.23 0 0 0 3.3 9.5a9 9 0 0 0 .39 4.58 16.6 16.6 0 0 1 1.18-2.2 9.85 9.85 0 0 1 4.07-3.43 11.16 11.16 0 0 1 5.06-1A12.08 12.08 0 0 0 9.34 9.2a9.48 9.48 0 0 0-1.86 1.53 11.38 11.38 0 0 0-1.39 1.91 16.39 16.39 0 0 0-1.57 4.54A26.42 26.42 0 0 0 4 22h2a30.69 30.69 0 0 1 .59-4.32 9.25 9.25 0 0 0 4.52 1.11 11 11 0 0 0 4.28-.87C23 14.67 22 3.86 22 3.41z"></path></svg>
+                }
+            </div>
+        </div>
+    </div>
+    @{
+        var count = 0;
+    }
+    @foreach (var item in Model)
+    {
+        count++;
+        <a href="@Url.Action("Details", "Brands", new { id = item.BrandId })" class="flex items-center justify-between bg-gray-50 border border-gray-200 rounded-lg shadow md:max-w-m hover:bg-gray-100">
+            <!--Move the scores/leaves in the middle/Add View to the right-->
+            <h5 class="text-lg font-bold text-btn py-4 px-5">@Html.DisplayFor(modelItem => item.BrandName)</h5>
+            <div class="flex items-center px-5 py-4">
+                <p class="text-btn me-[400px]">@item.RoundedScores / 10</p>
+                <div class="flex items-center">
+                    @{
+                        var starsFull = (int)Math.Floor(item.Scores / 2.0); // Full stars
+                        var starHalf = item.Scores % 2 >= 1 ? 1 : 0; // Half star
+                        var starsEmpty = 5 - starsFull - starHalf; // Empty stars
+                    }
+                    @for (int i = 0; i < starsFull; i++)
+                    {
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(58, 191, 33, 0.8);"><path d="m22 3.41-.12-1.26-1.2.4a13.84 13.84 0 0 1-6.41.64 11.87 11.87 0 0 0-6.68.9A7.23 7.23 0 0 0 3.3 9.5a9 9 0 0 0 .39 4.58 16.6 16.6 0 0 1 1.18-2.2 9.85 9.85 0 0 1 4.07-3.43 11.16 11.16 0 0 1 5.06-1A12.08 12.08 0 0 0 9.34 9.2a9.48 9.48 0 0 0-1.86 1.53 11.38 11.38 0 0 0-1.39 1.91 16.39 16.39 0 0 0-1.57 4.54A26.42 26.42 0 0 0 4 22h2a30.69 30.69 0 0 1 .59-4.32 9.25 9.25 0 0 0 4.52 1.11 11 11 0 0 0 4.28-.87C23 14.67 22 3.86 22 3.41z"></path></svg>
+                    }
+                    @if (starHalf == 1)
+                    {
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(58, 191, 33, 0.8);"><path d="m22 3.41-.12-1.26-1.2.4a13.84 13.84 0 0 1-6.41.64 11.87 11.87 0 0 0-6.68.9A7.23 7.23 0 0 0 3.3 9.5a9 9 0 0 0 .39 4.58 16.6 16.6 0 0 1 1.18-2.2 9.85 9.85 0 0 1 4.07-3.43 11.16 11.16 0 0 1 5.06-1A12.08 12.08 0 0 0 9.34 9.2a9.48 9.48 0 0 0-1.86 1.53 11.38 11.38 0 0 0-1.39 1.91 16.39 16.39 0 0 0-1.57 4.54A26.42 26.42 0 0 0 4 22h2a30.69 30.69 0 0 1 .59-4.32 9.25 9.25 0 0 0 4.52 1.11 11 11 0 0 0 4.28-.87C23 14.67 22 3.86 22 3.41z"></path></svg>// Half star
+                    }
+                    @for (int i = 0; i < starsEmpty; i++)
+                    {
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(58, 191, 33, 0.8);"><path d="m21.88 2.15-1.2.4a13.84 13.84 0 0 1-6.41.64 11.87 11.87 0 0 0-6.68.9A7.23 7.23 0 0 0 3.3 9.5a8.65 8.65 0 0 0 1.47 6.6c-.06.21-.12.42-.17.63A22.6 22.6 0 0 0 4 22h2a30.69 30.69 0 0 1 .59-4.32 9.25 9.25 0 0 0 4.52 1.11 11 11 0 0 0 4.28-.87C23 14.67 22 3.86 22 3.41zm-7.27 13.93c-2.61 1.11-5.73.92-7.48-.45a13.79 13.79 0 0 1 1.21-2.84A10.17 10.17 0 0 1 9.73 11a9 9 0 0 1 1.81-1.42A12 12 0 0 1 16 8V7a11.43 11.43 0 0 0-5.26 1.08 10.28 10.28 0 0 0-4.12 3.65 15.07 15.07 0 0 0-1 1.87 7 7 0 0 1-.38-3.73 5.24 5.24 0 0 1 3.14-4 8.93 8.93 0 0 1 3.82-.84c.62 0 1.23.06 1.87.11a16.2 16.2 0 0 0 6-.35C20 7.55 19.5 14 14.61 16.08z"></path></svg>// Empty star
+                    }
+                </div>
+            </div>
+        </a>
+    }
+    @if (count == 0)
+    {
+        <br>
+        <h3 class="flex items-center text-2xl text-center mx-10 text-btn "> This Brand doesn't exist</h3>// show it when count is 0
+    }
+    <div class="page-navigation">
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page, search = Request.QueryString["search"] }))
+    </div>
+
+    <div class="flex justify-center items-center mb-3">
+        <img class="md:h-auto max-w-2xs" src="~/Content/images/Line.png" alt="">
+    </div>
+    <p class="flex justify-center text-xl font-bold">What to do next?</p>
+
+    <div class="row flex flex-wrap justify-center mt-3 my-5">
+
+        <div class="justify-center items-center mx-auto my-2 w-80 bg-white border border-gray-200 rounded-lg shadow">
+            <img class="rounded-lg mx-auto mt-5" src="~/Content/images/fabric.png" alt="" />
+            <div class="py-5 px-3 text-center">
+                <h5 class="mb-5 text-xl font-bold tracking-tight text-btn">Explore the most sustainable fabrics</h5>
+                <div class="flex-column">
+                    <a href="@Url.Action("Index", "Fabrics")" type="button" class="text-white bg-btn hover:bg-btnOn focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2">Sustainable Fabrics</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="mx-auto my-2 w-80 bg-white border border-gray-200 rounded-lg shadow">
+            <img class="rounded-lg mx-auto mt-5" src="~/Content/images/recycle.png" alt="" />
+            <div class="py-5 px-3 text-center">
+                <h5 class="mb-5 text-xl font-bold tracking-tight text-btn">Find local recycling shops & give old clothes a new life</h5>
+                <div class="flex-column">
+                    <a href="@Url.Action("Index", "Locations")" type="button" class="text-white bg-btn hover:bg-btnOn focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2">Recycling locations</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="mx-auto my-2 w-80 bg-white border border-gray-200 rounded-lg shadow">
+            <img class="rounded-lg mx-auto mt-5" src="~/Content/images/footprint.png" alt="" />
+            <div class="py-5 px-3 text-center">
+                <h5 class="mb-5 text-xl font-bold tracking-tight text-btn">Curious about your fashion footprint? </h5>
+                <div class="flex-column">
+                    <a href="@Url.Action("Index", "ShoppingImpact")" type="button" class="text-white bg-btn hover:bg-btnOn focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2">Calculate Footprint</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
